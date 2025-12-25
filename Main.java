@@ -13,14 +13,16 @@ public class Main {
                 "0891234567"
         );
 
-        // 2️⃣ MenuItem
-        MenuItem pizza = new MenuItem(101, "Pizza", 250.0);
-        MenuItem burger = new MenuItem(102, "Burger", 120.0);
+        // 2️⃣ MenuItem 4 สร้าง objects ตาม จำนวน constructors ของ class
+        MenuItem pizza = new MenuItem(101);
+        MenuItem pizza2 = new MenuItem(102, "Pizza2");
+        MenuItem pizza3 = new MenuItem(103, "Pizza3", 120.0);
 
         // 3️⃣ Restaurant
         List<MenuItem> menuList = new ArrayList<>();
         menuList.add(pizza);
-        menuList.add(burger);
+        menuList.add(pizza2);
+        menuList.add(pizza3);
 
         Restaurant restaurant = new Restaurant(
                 10,
@@ -36,7 +38,8 @@ public class Main {
 
         // 5️⃣ OrderItem
         OrderItem item1 = new OrderItem(pizza, 1);
-        OrderItem item2 = new OrderItem(burger, 2);
+        OrderItem item2 = new OrderItem(pizza2, 2);
+        OrderItem item3 = new OrderItem(pizza3, 1);
 
         order.addItem(item1);
         order.addItem(item2);
