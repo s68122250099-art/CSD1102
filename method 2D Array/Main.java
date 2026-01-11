@@ -16,6 +16,9 @@ public class Main {
         //4.   ให้ประกาศ 2D Array ขนาด 10 × 10 อีก 1 ตัว 
         // จากนั้นเขียน method เพื่อ บวกค่าของ array ทั้งสองตัวในตำแหน่งเดียวกัน และเก็บผลลัพธ์ลงใน array ใหม่
         int[][] array2 = new int[10][10];
+        randomArray(array2);
+        System.out.println("Array 2:");
+        displayArray(array2);
         addArray(array1, array2);
         int[][] result = addArray(array1, array2);
         System.out.println("result :");
@@ -37,7 +40,7 @@ public class Main {
             for (int j = 0; j < arr[i].length; j++) {
                 System.out.print(arr[i][j] + " ");
             }
-        System.out.println();
+            System.out.println();
         }
         System.out.println();
     }
