@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="15" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.javafx.HelloController"
+      style="-fx-background-color: #f4f4f4;">
+    <padding><Insets bottom="20" left="20" right="20" top="20"/></padding>
+
+    <Label text="📚 ระบบจัดการห้องสมุด &amp; รีวิว" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+    <TitledPane text="เพิ่มหรือแก้ไขข้อมูลหนังสือ" collapsible="false">
+        <GridPane hgap="10" vgap="10">
+            <TextField fx:id="txtTitle" promptText="ชื่อหนังสือ" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <TextField fx:id="txtAuthor" promptText="ผู้แต่ง" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            <TextField fx:id="txtPublisher" promptText="สำนักพิมพ์" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <TextField fx:id="txtYear" promptText="ปีที่พิมพ์" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+            <TextArea fx:id="txtReview" promptText="เขียนรีวิวหนังสือเล่มนี้..." prefRowCount="2" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <Label text="คะแนน (1-5):"/>
+                <ComboBox fx:id="comboRating" promptText="เลือกคะแนน" prefWidth="150"/>
+            </VBox>
+
+            <HBox spacing="10" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="3">
+                <Button text="➕ เพิ่มหนังสือใหม่" onAction="#onAddButtonClick" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                <Button text="📝 อัปเดตรีวิว (เลือกจากตาราง)" onAction="#onUpdateReviewClick" style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-font-weight: bold;" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            </HBox>
+        </GridPane>
+    </TitledPane>
+
+    <HBox spacing="15" alignment="CENTER_LEFT" style="-fx-background-color: white; -fx-padding: 10; -fx-background-radius: 5;">
+        <Label text="🔍 ค้นหา:" style="-fx-font-weight: bold;"/>
+        <TextField fx:id="txtSearch" promptText="ค้นหาชื่อหนังสือหรือผู้แต่ง..." prefWidth="250"/>
+        <Separator orientation="VERTICAL"/>
+        <Label text="↕️ เรียงตาม:" style="-fx-font-weight: bold;"/>
+        <ComboBox fx:id="comboSort" promptText="เลือกเงื่อนไข..."/>
+    </HBox>
+
+    <TableView fx:id="bookTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colTitle" text="ชื่อหนังสือ" prefWidth="180"/>
+            <TableColumn fx:id="colAuthor" text="ผู้แต่ง" prefWidth="130"/>
+            <TableColumn fx:id="colYear" text="ปี" prefWidth="60"/>
+            <TableColumn fx:id="colRating" text="คะแนน" prefWidth="70"/>
+            <TableColumn fx:id="colReview" text="รีวิว" prefWidth="250"/>
+        </columns>
+    </TableView>
+</VBox>
